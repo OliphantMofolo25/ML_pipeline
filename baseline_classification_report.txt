@@ -1,0 +1,699 @@
+Accuracy: 0.0027
+
+                                                                     precision    recall  f1-score   support
+
+                                                               ADHD       0.00      0.00      0.00       902
+                                               AIDS Related Wasting       0.00      0.00      0.00         1
+                                               Abdominal Distension       0.00      0.00      0.00         0
+                                          Abnormal Uterine Bleeding       0.00      0.00      0.00       549
+                                                           Abortion       0.00      0.00      0.00         2
+                                             Acetaminophen Overdose       0.00      0.00      0.00         0
+                                                               Acne       0.31      0.00      0.01      1487
+                                                  Actinic Keratosis       0.00      0.00      0.00         7
+                                            Acute Coronary Syndrome       0.00      0.00      0.00        13
+                                       Acute Lymphoblastic Leukemia       0.00      0.00      0.00         1
+                                      Acute Nonlymphocytic Leukemia       0.00      0.00      0.00         0
+                                       Acute Promyelocytic Leukemia       0.00      0.00      0.00         1
+                                                  Addison's Disease       0.00      0.00      0.00         3
+                                       Adrenocortical Insufficiency       0.00      0.00      0.00         2
+                              Adult Human Growth Hormone Deficiency       0.00      0.00      0.00         2
+                                                     Agitated State       0.00      0.00      0.00         9
+                                                          Agitation       0.00      0.00      0.00         3
+                                                 Alcohol Dependence       0.00      0.00      0.00       104
+                                                 Alcohol Withdrawal       0.00      0.00      0.00        57
+                                                 Allergic Reactions       0.00      0.00      0.00        23
+                                                  Allergic Rhinitis       0.12      0.00      0.01       265
+                                                 Allergic Urticaria       0.00      0.00      0.00         6
+                                                          Allergies       0.00      0.00      0.00        46
+                                                           Alopecia       0.00      0.00      0.00        25
+                            Alpha-1 Proteinase Inhibitor Deficiency       0.00      0.00      0.00         1
+                                                Alzheimer's Disease       0.00      0.00      0.00        23
+                                                          Amebiasis       0.00      0.00      0.00         1
+                                                         Amenorrhea       0.00      0.00      0.00        24
+                                           Anal Fissure and Fistula       0.00      0.00      0.00         3
+                                                       Anal Itching       0.00      0.00      0.00         1
+                                             Anaplastic Astrocytoma       0.00      0.00      0.00         1
+                                       Anaplastic Oligodendroglioma       0.00      0.00      0.00         1
+                                              Androgenetic Alopecia       0.00      0.00      0.00        13
+                                                             Anemia       0.00      0.00      0.00         6
+                       Anemia Associated with Chronic Renal Failure       0.00      0.00      0.00         3
+                                       Anemia, Chemotherapy Induced       0.00      0.00      0.00         1
+                                                Anemia, Sickle Cell       0.00      0.00      0.00         2
+                                                         Anesthesia       0.00      0.00      0.00        68
+                                                 Anesthetic Adjunct       0.00      0.00      0.00         1
+                                                             Angina       0.00      0.00      0.00        25
+                                        Angina Pectoris Prophylaxis       0.00      0.00      0.00         6
+                                             Ankylosing Spondylitis       0.00      0.93      0.00        54
+                                                           Anorexia       0.00      0.00      0.00        22
+                                          Anorexia/Feeding Problems       0.00      0.00      0.00         1
+                                                            Anthrax       0.00      0.00      0.00         1
+                                          Antiphospholipid Syndrome       0.00      0.00      0.00         1
+                                                            Anxiety       0.03      0.00      0.00      1563
+                                                 Anxiety and Stress       0.00      0.00      0.00       447
+                                                      Aphthous Ulce       0.00      0.00      0.00         1
+                                                    Aplastic Anemia       0.00      0.00      0.00         1
+                                                         Arrhythmia       0.00      0.00      0.00        28
+                                                         Ascariasis       0.00      0.00      0.00         1
+                                                  Asperger Syndrome       0.00      0.00      0.00         4
+                                               Aspiration Pneumonia       0.00      0.00      0.00         1
+                                                             Asthma       0.00      0.00      0.00        60
+                                                Asthma, Maintenance       0.00      0.00      0.00       132
+                                                      Asthma, acute       0.00      0.00      0.00        34
+                                                    Atherosclerosis       0.05      0.50      0.09         2
+                                                  Atopic Dermatitis       0.00      0.00      0.00        43
+                                                Atrial Fibrillation       0.00      0.00      0.00        69
+                                                      Atrial Flutte       0.00      0.00      0.00         6
+                                                Atrophic Urethritis       0.00      0.00      0.00         5
+                                                 Atrophic Vaginitis       0.00      0.00      0.00        47
+                                        Auditory Processing Disorde       0.00      0.00      0.00         2
+                                                             Autism       0.00      0.00      0.00        24
+                                        Autoimmune Hemolytic Anemia       0.00      0.00      0.00         1
+                                               Autoimmune Hepatitis       0.00      0.00      0.00         4
+                                         B12 Nutritional Deficiency       0.00      0.00      0.00         2
+                                                         Babesiosis       0.00      0.00      0.00         0
+                                                          Back Pain       0.00      0.00      0.00       162
+                                  Bacterial Endocarditis Prevention       0.00      0.00      0.00         2
+                                                Bacterial Infection       0.00      0.00      0.00       251
+                                           Bacterial Skin Infection       0.00      0.00      0.00        38
+                                                Bacterial Vaginitis       0.00      0.00      0.00       135
+                                                Barrett's Esophagus       0.00      0.00      0.00        18
+                                               Basal Cell Carcinoma       0.00      0.00      0.00        15
+                                                   Behcet's Disease       0.00      0.00      0.00         3
+                                              Benign Essential Trem       0.00      0.00      0.00        23
+                                       Benign Prostatic Hyperplasia       0.00      0.00      0.00       145
+                                          Benzodiazepine Withdrawal       0.00      0.00      0.00         5
+                                                  Biliary Cirrhosis       0.00      0.00      0.00         2
+                                               Binge Eating Disorde       0.00      0.00      0.00        20
+                                                    Bipolar Disorde       0.00      0.00      0.00      1121
+                                                      Birth Control       1.00      0.00      0.00      7687
+                                                  Bladder Infection       0.00      0.00      0.00       105
+                                                   Bleeding Disorde       0.00      0.00      0.00         2
+                                                        Blepharitis       0.00      0.00      0.00         1
+                                            Body Dysmorphic Disorde       0.00      0.00      0.00         2
+                                                     Bone infection       0.00      0.00      0.00         5
+                                     Borderline Personality Disorde       0.00      0.00      0.00        40
+                                                  Bowel Preparation       0.00      0.00      0.00       500
+                                                          Brain Tum       0.08      0.50      0.14         2
+                                                  Breakthrough Pain       0.00      0.00      0.00         9
+                                                       Breast Cance       0.00      0.00      0.00        74
+                                            Breast Cancer, Adjuvant       0.00      0.00      0.00         5
+                                          Breast Cancer, Metastatic       0.00      0.00      0.00        26
+                                          Breast Cancer, Palliative       0.00      0.00      0.00         1
+                                          Breast Cancer, Prevention       0.00      0.00      0.00         2
+                                                     Bronchiectasis       0.14      0.33      0.20         3
+                                                         Bronchitis       0.00      0.00      0.00       142
+                                           Bronchospasm Prophylaxis       0.00      0.00      0.00         3
+                                                            Bulimia       0.00      0.00      0.00        15
+                                                 Bullous Pemphigoid       0.00      0.00      0.00         2
+                                             Burning Mouth Syndrome       0.00      0.00      0.00         5
+                                                    Burns, External       0.00      0.00      0.00        12
+                                                           Bursitis       0.06      0.33      0.10         3
+                                                    CMV Prophylaxis       0.00      0.00      0.00         1
+                                     CNS Magnetic Resonance Imaging       0.00      0.00      0.00         1
+                                                               COPD       0.00      0.00      0.00        41
+                                                        COPD, Acute       0.04      0.14      0.06         7
+                                                  COPD, Maintenance       0.00      0.00      0.00        66
+                                      Campylobacter Gastroenteritis       0.00      0.00      0.00         0
+                                                              Cance       0.14      1.00      0.25         1
+                                    Candida Urinary Tract Infection       0.00      0.00      0.00         1
+                                                         Candidemia       0.14      0.50      0.22         2
+                                                      Carcinoid Tum       0.20      1.00      0.33         1
+                                      Cardiovascular Risk Reduction       0.00      0.00      0.00         1
+                                                          Cataplexy       0.00      0.00      0.00         2
+                                                Cerebral Spasticity       0.00      0.00      0.00         1
+                                                  Cervical Dystonia       0.00      0.00      0.00        15
+                                                Chlamydia Infection       0.00      0.00      0.00        74
+                                           Chronic Fatigue Syndrome       0.00      0.00      0.00        23
+                                    Chronic Idiopathic Constipation       0.00      0.00      0.00        16
+          Chronic Inflammatory Demyelinating Polyradiculoneuropathy       0.00      0.00      0.00         1
+                                       Chronic Lymphocytic Leukemia       0.05      0.14      0.07         7
+                                       Chronic Myelogenous Leukemia       0.00      0.00      0.00        23
+                                            Chronic Myofascial Pain       0.00      0.00      0.00         2
+                                                       Chronic Pain       0.00      0.00      0.00       388
+                                               Chronic Pancreatitis       0.00      0.00      0.00         4
+                                                 Chronic Spasticity       0.00      0.00      0.00         5
+                                              Clostridial Infection       0.00      0.00      0.00         9
+                                                  Cluster Headaches       0.00      0.00      0.00        42
+                                                         Cold Sores       0.00      0.00      0.00        94
+                                                      Cold Symptoms       0.00      0.00      0.00        30
+                                                   Colorectal Cance       0.00      0.00      0.00         8
+                                                Computed Tomography       0.00      0.00      0.00         3
+                                              Condylomata Acuminata       0.00      0.00      0.00         7
+                                                     Conjunctivitis       0.00      0.00      0.00         4
+                                           Conjunctivitis, Allergic       0.00      0.00      0.00        19
+                                          Conjunctivitis, Bacterial       0.00      0.00      0.00        16
+                                                       Constipation       0.00      0.00      0.00       424
+                                                Constipation, Acute       0.00      0.00      0.00        11
+                                              Constipation, Chronic       0.00      0.00      0.00       154
+                                         Constipation, Drug Induced       0.00      0.00      0.00        61
+                                         Corneal Refractive Surgery       0.00      0.00      0.00         0
+                                            Coronary Artery Disease       0.00      0.00      0.00         1
+                                                    Costochondritis       0.00      0.00      0.00         2
+                                                              Cough       0.00      0.00      0.00       245
+                                         Cough and Nasal Congestion       0.00      0.00      0.00        94
+                                                    Crohn's Disease       0.00      0.00      0.00        44
+                                             Crohn's Disease, Acute       0.00      0.00      0.00        12
+                                       Crohn's Disease, Maintenance       0.00      0.00      0.00        53
+                                              Cutaneous Candidiasis       0.00      0.00      0.00         4
+                                          Cutaneous T-cell Lymphoma       0.00      0.00      0.00         1
+                                           Cyclic Vomiting Syndrome       0.00      0.00      0.00         7
+                                                           Cyclitis       0.00      0.00      0.00         0
+                                                Cyclothymic Disorde       0.00      0.00      0.00         1
+                                                    Cystic Fibrosis       0.00      0.00      0.00         4
+                                                           Dandruff       0.00      0.00      0.00         2
+                                                Deep Neck Infection       0.00      0.00      0.00         1
+                                               Deep Vein Thrombosis       0.00      0.00      0.00        22
+     Deep Vein Thrombosis Prophylaxis after Hip Replacement Surgery       0.00      0.00      0.00         1
+                                  Deep Vein Thrombosis, First Event       0.00      0.00      0.00         2
+                                  Deep Vein Thrombosis, Prophylaxis       0.00      0.00      0.00         4
+                              Deep Vein Thrombosis, Recurrent Event       0.00      0.00      0.00         2
+                                                           Dementia       0.00      0.00      0.00         1
+                                                     Dental Abscess       0.00      0.00      0.00        23
+                                                         Depression       0.00      0.00      0.00      2433
+                                                   Dercum's Disease       0.00      0.00      0.00         1
+                                                         Dermatitis       0.00      0.00      0.00        26
+                                                Dermatologic Lesion       0.00      0.00      0.00         3
+                                           Dermatological Disorders       0.00      0.00      0.00        10
+                                                    Dermatomyositis       0.00      0.00      0.00         2
+                                                    Dermatophytosis       0.00      0.00      0.00         1
+                                                 Diabetes Insipidus       0.00      0.00      0.00         4
+                                                   Diabetes, Type 1       0.00      0.00      0.00        37
+                                                   Diabetes, Type 2       0.00      0.00      0.00       673
+                                            Diabetic Kidney Disease       0.00      0.00      0.00         5
+                                             Diabetic Macular Edema       0.00      0.00      0.00         2
+                                     Diabetic Peripheral Neuropathy       0.00      0.00      0.00        46
+                                        Diagnosis and Investigation       0.07      0.25      0.11         4
+                                                        Diaper Rash       0.00      0.00      0.00         5
+                                                           Diarrhea       0.00      0.00      0.00        36
+                                                    Diarrhea, Acute       0.00      0.00      0.00         3
+                                                  Diarrhea, Chronic       0.00      0.00      0.00        14
+                                               Dientamoeba fragilis       0.00      0.00      0.00         1
+                                      Dietary Fiber Supplementation       0.00      0.00      0.00         2
+                                            Dietary Supplementation       0.00      0.00      0.00        25
+                                      Dissociative Identity Disorde       0.00      0.00      0.00         0
+                                                     Diverticulitis       0.00      0.00      0.00        37
+                                                    Dry Eye Disease       0.00      0.00      0.00        40
+                                                           Dry Skin       0.00      0.00      0.00        20
+                                                   Dumping Syndrome       0.00      0.00      0.00         2
+                                                      Duodenal Ulce       0.00      0.00      0.00         7
+                                            Dupuytren's contracture       0.20      1.00      0.33         1
+                                                       Dysautonomia       0.00      0.00      0.00         7
+                                                        Dyspareunia       0.09      0.25      0.13         4
+                                                           Dystonia       0.00      0.00      0.00         3
+                                                            Dysuria       0.00      0.00      0.00        20
+                                                  Ear Wax Impaction       0.00      0.00      0.00         2
+                                                  Ectopic Pregnancy       0.00      0.00      0.00         1
+                                                             Eczema       0.00      0.00      0.00        44
+                                                              Edema       0.00      0.00      0.00        27
+                                                       Ehrlichiosis       0.00      0.00      0.00         0
+                                            Emergency Contraception       0.00      0.00      0.00       658
+                                                  Endometrial Cance       0.00      0.00      0.00         2
+                                            Endometrial Hyperplasia       0.00      0.00      0.00         2
+                               Endometrial Hyperplasia, Prophylaxis       0.00      0.00      0.00         1
+                                                      Endometriosis       0.00      0.00      0.00       150
+                               Endoscopy or Radiology Premedication       0.05      1.00      0.10         1
+                                                      Enterocolitis       0.00      0.00      0.00         1
+                                           Eosinophilic Esophagitis       0.00      0.00      0.00         1
+                                                           Epilepsy       0.00      0.00      0.00        96
+                                               Erectile Dysfunction       0.00      0.00      0.00       294
+                                                Erosive Esophagitis       0.00      0.00      0.00        18
+                                             Esophageal Candidiasis       0.20      1.00      0.33         1
+                         Esophageal Variceal Hemorrhage Prophylaxis       0.00      0.00      0.00         1
+                                                      Expectoration       0.00      0.00      0.00         3
+                                            Extrapyramidal Reaction       0.00      0.00      0.00         7
+                                                        Eye Redness       0.00      0.00      0.00        15
+                                                Eye Redness/Itching       0.00      0.00      0.00         9
+                                              Eyelash Hypotrichosis       0.00      0.00      0.00         1
+                                                               GERD       0.00      0.00      0.00       194
+                                                Gallbladder Disease       0.00      0.00      0.00         1
+                                                                Gas       0.00      0.00      0.00         5
+                                Gastric Ulcer Maintenance Treatment       0.00      0.00      0.00         1
+                                               Gastritis/Duodenitis       0.00      0.00      0.00         1
+                                                    Gastroenteritis       0.00      0.00      0.00        10
+                                   Gastrointestinal Decontamination       0.00      0.00      0.00         1
+                                       Gastrointestinal Stromal Tum       0.00      0.00      0.00         2
+                                                      Gastroparesis       0.00      0.00      0.00        10
+                                                   Gender Dysphoria       0.00      0.00      0.00         1
+                                        Generalized Anxiety Disorde       0.00      0.00      0.00       309
+                                           Giant Cell Tumor of Bone       0.00      0.00      0.00         0
+                                                         Giardiasis       0.00      0.00      0.00         4
+                                                         Gingivitis       0.00      0.00      0.00         2
+                                                           Glaucoma       0.00      0.00      0.00         9
+                                               Glaucoma, Open Angle       0.00      0.00      0.00        15
+                                  Glaucoma/Intraocular Hypertension       0.00      0.00      0.00         1
+                                                 Glioblastoma Multi       0.00      0.00      0.00         1
+                                            Glioblastoma Multiforme       0.00      0.00      0.00         1
+                                Gonococcal Infection, Uncomplicated       0.00      0.00      0.00         1
+                                                               Gout       0.00      0.00      0.00        26
+                                                        Gout, Acute       0.00      0.00      0.00        50
+                                                  Gout, Prophylaxis       0.00      0.00      0.00         1
+                                                    Gouty Arthritis       0.00      0.00      0.00         9
+                                                 Granuloma Annulare       0.00      0.00      0.00         1
+                                                      HIV Infection       0.00      0.00      0.00       164
+                                                Hairy Cell Leukemia       0.00      0.00      0.00         0
+                                                Hashimoto's disease       0.00      0.00      0.00        49
+                                                        Head Injury       0.00      0.00      0.00         1
+                                                          Head Lice       0.00      0.00      0.00        20
+                                                Head and Neck Cance       0.00      0.00      0.00         2
+                                                           Headache       0.00      0.00      0.00       125
+                                                       Heart Attack       0.00      0.00      0.00        15
+                                                      Heart Failure       0.00      0.00      0.00        23
+                                      Helicobacter Pylori Infection       0.00      0.00      0.00        67
+                                                       Hemophilia A       0.00      0.00      0.00         1
+                                                       Hemophilia B       0.00      0.00      0.00         0
+                                                        Hemorrhoids       0.00      0.00      0.00        24
+                                             Hepatic Encephalopathy       0.07      0.33      0.12         3
+                                                        Hepatic Tum       0.00      0.00      0.00         0
+                                                        Hepatitis B       0.00      0.00      0.00         4
+                                                        Hepatitis C       0.75      0.02      0.03       180
+                                           Hepatocellular Carcinoma       0.00      0.00      0.00         2
+                                             Herbal Supplementation       0.00      0.00      0.00         7
+                                              Hereditary Angioedema       0.00      0.00      0.00         5
+                                                     Herpes Simplex       0.00      0.00      0.00       103
+                                 Herpes Simplex Dendritic Keratitis       0.00      0.00      0.00         1
+                 Herpes Simplex, Mucocutaneous/Immunocompetent Host       0.00      0.00      0.00         3
+               Herpes Simplex, Mucocutaneous/Immunocompromised Host       0.00      0.00      0.00         1
+                                        Herpes Simplex, Suppression       0.00      0.00      0.00        42
+                                                       Herpes Zoste       0.00      0.00      0.00         7
+                                         Herpes Zoster, Prophylaxis       0.00      0.00      0.00         1
+                                                            Hiccups       0.00      0.00      0.00         7
+                                           Hidradenitis Suppurativa       0.00      0.00      0.00         1
+                                                High Blood Pressure       0.00      0.00      0.00       621
+                                                   High Cholesterol       0.00      0.00      0.00       164
+                            High Cholesterol, Familial Heterozygous       0.00      0.00      0.00        16
+                              High Cholesterol, Familial Homozygous       0.00      0.00      0.00         3
+                                                          Hirsutism       0.00      0.00      0.00        24
+                                                     Histoplasmosis       0.00      0.00      0.00         1
+                                                        Hot Flashes       0.00      0.00      0.00        64
+                                              Human Papilloma Virus       0.00      0.00      0.00        28
+                                   Human Papillomavirus Prophylaxis       0.00      0.00      0.00         8
+                                        Hypercalcemia of Malignancy       0.00      0.00      0.00         1
+                                                      Hyperekplexia       0.00      0.00      0.00         1
+                                                      Hyperhidrosis       0.00      0.00      0.00       184
+                                                       Hyperkalemia       0.00      0.00      0.00         1
+                                               Hyperlipoproteinemia       0.00      0.00      0.00         3
+                        Hyperlipoproteinemia Type IIa, Elevated LDL       0.00      0.00      0.00         3
+                  Hyperparathyroidism Secondary to Renal Impairment       0.00      0.00      0.00         0
+                                                  Hyperphosphatemia       0.00      0.00      0.00         1
+                                 Hyperphosphatemia of Renal Failure       0.00      0.00      0.00         5
+                                                 Hyperprolactinemia       0.00      0.00      0.00        14
+                                                        Hypersomnia       0.00      0.00      0.00        19
+                                             Hypertensive Emergency       0.00      0.00      0.00         3
+                                                    Hyperthyroidism       0.00      0.00      0.00         3
+                                               Hypertriglyceridemia       0.00      0.00      0.00        20
+                                   Hypoactive Sexual Desire Disorde       0.00      0.00      0.00         2
+                                                       Hypocalcemia       0.00      0.00      0.00         1
+                                                    Hypoestrogenism       0.00      0.00      0.00         6
+                                                       Hypoglycemia       0.00      0.00      0.00         1
+                                                 Hypogonadism, Male       0.00      0.00      0.00       140
+                                                        Hypokalemia       0.00      0.00      0.00         1
+                                                     Hypomagnesemia       0.00      0.00      0.00         1
+                                                 Hypoparathyroidism       0.00      0.00      0.00         2
+                                                        Hypotension       0.00      0.00      0.00         1
+                              Hypothyroidism, After Thyroid Removal       0.00      0.00      0.00        38
+                                                      ICU Agitation       0.05      1.00      0.09         1
+                                                         Ichthyosis       0.00      0.00      0.00         1
+                                Idiopathic Thrombocytopenic Purpura       0.00      0.00      0.00         3
+                                                  Immunosuppression       0.00      0.00      0.00         2
+                                                            Impetig       0.00      0.00      0.00         3
+                                                        Indigestion       0.00      0.00      0.00        14
+                                              Infection Prophylaxis       0.00      0.00      0.00         2
+                                         Inflammatory Bowel Disease       0.00      0.00      0.00         7
+                                            Inflammatory Conditions       0.00      0.00      0.00        81
+                                                          Influenza       0.00      0.00      0.00        93
+                                              Influenza Prophylaxis       0.00      0.00      0.00         7
+                                                           Insomnia       0.56      0.03      0.05       981
+                                     Insomnia, Stimulant-Associated       0.00      0.00      0.00         6
+                                        Insulin Resistance Syndrome       0.00      0.00      0.00         6
+                                          Intermittent Claudication       0.00      0.00      0.00         3
+                                              Interstitial Cystitis       0.00      0.00      0.00        45
+                                           Intraabdominal Infection       0.00      0.00      0.00         2
+                                           Intraocular Hypertension       0.00      0.00      0.00         4
+                                                             Iritis       0.00      0.00      0.00         2
+                                             Iron Deficiency Anemia       0.00      0.00      0.00        10
+                                           Irritable Bowel Syndrome       0.00      0.00      0.00       268
+                                                    Ischemic Stroke       0.00      0.00      0.00         3
+                                       Ischemic Stroke, Prophylaxis       0.00      0.00      0.00         6
+                                                    Joint Infection       0.00      0.00      0.00         0
+                                      Juvenile Idiopathic Arthritis       0.00      0.00      0.00         5
+                                      Juvenile Rheumatoid Arthritis       0.00      0.00      0.00         7
+                                                          Keratitis       0.00      0.00      0.00         0
+                                         Keratoconjunctivitis Sicca       0.00      0.00      0.00        16
+                                                          Keratosis       0.00      0.00      0.00        30
+                                                  Kidney Infections       0.00      0.00      0.00        30
+                                                    Labor Induction       0.00      0.00      0.00         3
+                                                         Labor Pain       0.00      0.00      0.00         6
+                                             Lactation Augmentation       0.00      0.00      0.00         3
+                                                Lactose Intolerance       0.00      0.00      0.00         4
+                                       Left Ventricular Dysfunction       0.00      0.00      0.00         5
+                                            Lennox-Gastaut Syndrome       0.00      0.00      0.00         5
+                                                           Leukemia       0.00      0.00      0.00         1
+                                                 Lewy Body Dementia       0.00      0.00      0.00         1
+                                                      Lichen Planus       0.00      0.00      0.00         3
+                                                   Lichen Sclerosus       0.00      0.00      0.00         3
+                                                   Light Anesthesia       0.00      0.00      0.00         8
+                                                     Light Sedation       0.00      0.00      0.00        17
+                                                      Lipodystrophy       0.00      0.00      0.00         2
+                                   Liver Magnetic Resonance Imaging       0.00      0.00      0.00         1
+                                                   Local Anesthesia       0.17      0.50      0.25         2
+                                                       Lyme Disease       0.00      0.00      0.00         9
+                                            Lyme Disease, Arthritis       0.00      0.00      0.00         2
+                                           Lyme Disease, Neurologic       0.00      0.00      0.00         4
+                                                Lymphocytic Colitis       0.00      0.00      0.00         1
+                                                           Lymphoma       0.00      0.00      0.00         2
+                                               Macular Degeneration       0.00      0.00      0.00         5
+                                                      Macular Edema       0.00      0.00      0.00         2
+                                           Major Depressive Disorde       0.00      0.00      0.00       426
+                                                            Malaria       0.00      0.00      0.00         5
+                                                 Malaria Prevention       0.00      0.00      0.00        12
+                                                   Malignant Glioma       0.00      0.00      0.00         0
+                                                              Mania       0.00      0.00      0.00        15
+                                                           Melanoma       0.00      0.00      0.00         1
+                                               Melanoma, Metastatic       0.00      0.00      0.00         5
+                                                            Melasma       0.00      0.00      0.00        20
+                                                  Meniere's Disease       0.00      0.00      0.00         6
+                                                         Meningitis       0.00      0.00      0.00         1
+                                               Menopausal Disorders       0.00      0.00      0.00         3
+                                                        Menorrhagia       0.00      0.00      0.00        19
+                                                Menstrual Disorders       0.00      0.00      0.00        95
+              Methicillin-Resistant Staphylococcus Aureus Infection       0.00      0.00      0.00         5
+                                                           Migraine       0.00      0.00      0.00       456
+                                                Migraine Prevention       0.20      0.01      0.01       374
+                                          Mild Cognitive Impairment       0.00      0.00      0.00         2
+                                              Mitral Valve Prolapse       0.00      0.00      0.00         8
+                                    Mixed Connective Tissue Disease       0.00      0.00      0.00         1
+                                                      Mononucleosis       0.00      0.00      0.00         1
+                                                    Motion Sickness       0.00      0.00      0.00        55
+                              Mountain Sickness / Altitude Sickness       0.00      0.00      0.00         2
+                                                          Mucositis       0.33      0.50      0.40         2
+                                                   Multiple Myeloma       0.00      0.00      0.00         4
+                                                 Multiple Sclerosis       0.00      0.00      0.00       183
+                                                        Muscle Pain       0.00      0.00      0.00        24
+                                                       Muscle Spasm       0.00      0.00      0.00       326
+                                                  Myasthenia Gravis       0.00      0.00      0.00        11
+                      Mycobacterium avium-intracellulare, Treatment       0.00      0.00      0.00         2
+                                               Mycoplasma Pneumonia       0.00      0.00      0.00         1
+                                           Myelodysplastic Syndrome       0.00      0.00      0.00         5
+                                       Myeloproliferative Disorders       0.00      0.00      0.00         0
+                                         NSAID-Induced Gastric Ulce       0.00      0.00      0.00         2
+                                    NSAID-Induced Ulcer Prophylaxis       0.00      0.00      0.00         1
+                                                         Narcolepsy       0.00      0.00      0.00       132
+                            Nasal Carriage of Staphylococcus aureus       0.00      0.00      0.00         2
+                                                   Nasal Congestion       0.00      0.00      0.00        78
+                                                       Nasal Polyps       0.00      0.00      0.00         3
+                                                    Nausea/Vomiting       0.00      0.00      0.00       203
+                                       Nausea/Vomiting of Pregnancy       0.00      0.00      0.00        32
+                              Nausea/Vomiting, Chemotherapy Induced       0.00      0.00      0.00        19
+                                     Nausea/Vomiting, Postoperative       0.00      0.00      0.00         5
+                                 Nausea/Vomiting, Radiation Induced       0.00      0.00      0.00         1
+                                                          Neck Pain       0.00      0.00      0.00         1
+                                                   Nephrocalcinosis       0.00      0.00      0.00         1
+                                                 Nephrotic Syndrome       0.00      0.00      0.00         1
+                                                          Neuralgia       0.00      0.00      0.00        25
+                                                   Neuropathic Pain       0.00      0.00      0.00        70
+                                                           Neurosis       0.00      0.00      0.00         0
+                                                       Neurosurgery       0.00      0.00      0.00         1
+                           Neutropenia Associated with Chemotherapy       0.00      0.00      0.00        11
+                                      New Daily Persistent Headache       0.00      0.00      0.00         3
+                                                      Night Terrors       0.00      0.00      0.00         6
+                                                         Nightmares       0.00      0.00      0.00         5
+                                               Nocturnal Leg Cramps       0.00      0.00      0.00         7
+                                             Non-Hodgkin's Lymphoma       0.00      0.00      0.00         5
+                                          Non-Small Cell Lung Cance       0.00      0.00      0.00        27
+                                   Nonalcoholic Fatty Liver Disease       0.00      0.00      0.00         0
+                                              Noninfectious Colitis       0.00      0.00      0.00         2
+                                           Nonoccupational Exposure       0.00      0.00      0.00         1
+                                                  Not Listed / Othe       0.00      0.00      0.00       118
+                                                            Obesity       0.00      0.00      0.00       952
+                                       Obsessive Compulsive Disorde       0.00      0.00      0.00       151
+                          Obstructive Sleep Apnea/Hypopnea Syndrome       0.00      0.00      0.00        23
+                                                Occipital Neuralgia       0.00      0.00      0.00         1
+                                                     Ocular Rosacea       0.00      0.00      0.00         1
+                                                       Oligospermia       0.00      0.00      0.00         1
+                                          Onychomycosis, Fingernail       0.00      0.00      0.00         5
+                                             Onychomycosis, Toenail       0.00      0.00      0.00       107
+                                                       Oophorectomy       0.00      0.00      0.00         7
+                                                 Ophthalmic Surgery       0.00      0.00      0.00         2
+                                                     Opiate Adjunct       0.00      0.00      0.00         3
+                                                  Opiate Dependence       0.00      0.00      0.00       296
+                                                  Opiate Withdrawal       0.00      0.00      0.00        87
+                                                    Opioid Overdose       0.00      0.00      0.00         3
+                                        Opioid-Induced Constipation       0.00      0.00      0.00        12
+                                                        Oral Thrush       0.00      0.00      0.00         7
+                                         Oral and Dental Conditions       0.00      0.00      0.00         1
+                            Organ Transplant, Rejection Prophylaxis       0.00      0.00      0.00        13
+                               Organ Transplant, Rejection Reversal       0.00      0.00      0.00         0
+                                                     Osteoarthritis       0.00      0.00      0.00       325
+                        Osteolytic Bone Lesions of Multiple Myeloma       0.00      0.00      0.00         2
+                         Osteolytic Bone Metastases of Solid Tumors       0.00      0.00      0.00         3
+                                                       Osteoporosis       0.00      0.00      0.00        92
+                                                     Otitis Externa       0.00      0.00      0.00         7
+                                                       Otitis Media       0.00      0.00      0.00        41
+                                                      Ovarian Cance       0.00      0.00      0.00         4
+                                                      Ovarian Cysts       0.00      0.00      0.00        41
+                                                  Overactive Bladde       0.00      0.00      0.00       184
+                                                Ovulation Induction       0.00      0.00      0.00         5
+                                                    Paget's Disease       0.00      0.00      0.00         1
+                                                               Pain       0.00      0.00      0.00      1649
+                                                          Pain/Feve       0.05      0.33      0.09         3
+                                                   Pancreatic Cance       0.00      0.00      0.00         3
+                                    Pancreatic Exocrine Dysfunction       0.00      0.00      0.00         3
+                                                      Panic Disorde       0.17      0.00      0.01       387
+                                                   Paranoid Disorde       0.00      0.00      0.00        10
+                                                Parkinson's Disease       0.00      0.00      0.00        34
+                                                       Parkinsonism       0.00      0.00      0.00         0
+                            Paroxysmal Supraventricular Tachycardia       0.00      0.00      0.00         1
+                                                                 Pe       0.00      0.00      0.00         2
+                                Pediatric Growth Hormone Deficiency       0.00      0.00      0.00         2
+                                        Pelvic Inflammatory Disease       0.00      0.00      0.00         3
+                                                          Pemphigus       0.00      0.00      0.00         1
+                                                        Peptic Ulce       0.00      0.00      0.00         2
+                                 Percutaneous Coronary Intervention       0.00      0.00      0.00         1
+                                                Performance Anxiety       0.00      0.00      0.00         2
+                                            Perimenopausal Symptoms       0.00      0.00      0.00        13
+                                                        Period Pain       0.00      0.00      0.00        37
+                                     Periodic Limb Movement Disorde       0.00      0.00      0.00        12
+                                                      Periodontitis       0.00      0.00      0.00         1
+                                                Perioral Dermatitis       0.00      0.00      0.00         2
+                                        Peripheral Arterial Disease       0.00      0.00      0.00         1
+                                              Peripheral Neuropathy       0.00      0.00      0.00        47
+                                         Peripheral T-cell Lymphoma       0.00      0.00      0.00         1
+                                                        Peritonitis       0.00      0.00      0.00         1
+                                      Persistent Depressive Disorde       0.00      0.00      0.00         3
+                                                          Pertussis       0.00      0.00      0.00         1
+                                                 Peyronie's Disease       0.00      0.00      0.00         0
+                                                        Pharyngitis       0.00      0.00      0.00         5
+                                             Photoaging of the Skin       0.00      0.00      0.00         7
+                        Pinworm Infection (Enterobius vermicularis)       0.00      0.00      0.00         3
+                                           Pityriasis rubra pilaris       0.00      0.00      0.00         1
+                                                   Plaque Psoriasis       0.00      0.00      0.00        86
+                                    Platelet Aggregation Inhibition       0.00      0.00      0.00         1
+                                   Pneumococcal Disease Prophylaxis       0.00      0.00      0.00         7
+                                                          Pneumonia       0.00      0.00      0.00        73
+                                          Polycystic Ovary Syndrome       0.00      0.00      0.00        77
+                                                  Polycythemia Vera       0.20      0.50      0.29         2
+                                                          Porphyria       0.00      0.00      0.00         1
+                                      Post Traumatic Stress Disorde       0.00      0.00      0.00        86
+                                      Post-Cholecystectomy Diarrhea       0.00      0.00      0.00         3
+                                             Postherpetic Neuralgia       0.00      0.00      0.00        23
+                                            Postmenopausal Symptoms       0.00      0.00      0.00        90
+                                  Postoperative Ocular Inflammation       0.00      0.00      0.00         6
+                                                 Postoperative Pain       0.00      0.00      0.00        10
+                                              Postpartum Depression       0.00      0.00      0.00        23
+                          Postural Orthostatic Tachycardia Syndrome       0.00      0.00      0.00         7
+                                           Pre-Exposure Prophylaxis       0.00      0.00      0.00         1
+                                                 Precocious Puberty       0.00      0.00      0.00         6
+                                                      Premature Lab       0.00      0.00      0.00        22
+                              Premature Ventricular Depolarizations       0.00      0.00      0.00         2
+                                     Premenstrual Dysphoric Disorde       0.00      0.00      0.00        79
+                                              Premenstrual Syndrome       0.00      0.00      0.00         4
+                              Prevention of Atherothrombotic Events       0.00      0.00      0.00         1
+                                    Prevention of Bladder infection       0.00      0.00      0.00        17
+                               Prevention of Cardiovascular Disease       0.00      0.00      0.00         3
+                                        Prevention of Dental Caries       0.00      0.00      0.00         2
+                                          Prevention of Hypokalemia       0.00      0.00      0.00         2
+                                         Prevention of Osteoporosis       0.00      0.00      0.00         6
+               Prevention of Thromboembolism in Atrial Fibrillation       0.00      0.00      0.00        41
+                                         Primary Hyperaldosteronism       0.00      0.00      0.00         1
+                                  Primary Immunodeficiency Syndrome       0.00      0.00      0.00         9
+                                         Primary Nocturnal Enuresis       0.00      0.00      0.00         2
+                                            Primary Ovarian Failure       0.00      0.00      0.00         4
+                                         Progesterone Insufficiency       0.00      0.00      0.00         4
+                                                     Prostate Cance       0.00      0.00      0.00        34
+                                                        Prostatitis       0.00      0.00      0.00        23
+Prosthetic Heart Valves, Mechanical Valves - Thrombosis Prophylaxis       0.00      0.00      0.00         1
+    Prosthetic Heart Valves, Tissue Valves - Thrombosis Prophylaxis       0.00      0.00      0.00         0
+                                                           Pruritus       0.00      0.00      0.00        12
+                                                Pseudobulbar Affect       0.00      0.00      0.00         5
+                                           Pseudomembranous Colitis       0.00      0.00      0.00         1
+                                                Pseudotumor Cerebri       0.00      0.00      0.00        18
+                                                          Psoriasis       0.00      0.00      0.00       159
+                                                Psoriatic Arthritis       0.00      0.00      0.00        87
+                                                          Psychosis       0.00      0.00      0.00        20
+                                                 Pudendal Neuralgia       0.00      0.00      0.00         1
+                                                 Pulmonary Embolism       0.00      0.00      0.00        18
+                                    Pulmonary Embolism, First Event       0.00      0.00      0.00         1
+                                Pulmonary Embolism, Recurrent Event       0.00      0.00      0.00         2
+                                             Pulmonary Hypertension       0.00      0.00      0.00        18
+                                                 Pupillary Dilation       0.00      0.00      0.00         1
+                            Radionuclide Myocardial Perfusion Study       0.00      0.00      0.00         0
+                                                 Raynaud's Syndrome       0.00      0.00      0.00        13
+                              Reflex Sympathetic Dystrophy Syndrome       0.00      0.00      0.00        14
+                                                  Reiter's Syndrome       0.00      0.00      0.00         1
+                                              Rejection Prophylaxis       0.00      0.00      0.00         1
+                                               Renal Cell Carcinoma       0.00      0.00      0.00        25
+                                                   Renal Transplant       0.00      0.00      0.00         0
+                                             Restless Legs Syndrome       0.00      0.00      0.00       161
+                       Reversal of Nondepolarizing Muscle Relaxants       0.00      0.00      0.00         0
+                                        Reversal of Opioid Sedation       0.00      0.00      0.00         2
+                                               Rheumatoid Arthritis       0.00      0.00      0.00       263
+                                                           Rhinitis       0.00      0.00      0.00        23
+                                                         Rhinorrhea       0.00      0.00      0.00         1
+                                                            Rosacea       0.00      0.00      0.00       139
+                                                              SIADH       0.00      0.00      0.00         1
+                                                    STD Prophylaxis       0.00      0.00      0.00         1
+                                               Salivary Gland Cance       0.00      0.00      0.00         0
+                                                        Sarcoidosis       0.02      0.50      0.04         2
+                                                            Scabies       0.00      0.00      0.00         3
+                                            Schizoaffective Disorde       0.00      0.00      0.00       105
+                                                      Schizophrenia       0.00      0.00      0.00       158
+                                                Schnitzler Syndrome       0.00      0.00      0.00         1
+                                                           Sciatica       0.00      0.00      0.00        33
+                                         Seasonal Affective Disorde       0.00      0.00      0.00         4
+                                   Seasonal Allergic Conjunctivitis       0.00      0.00      0.00        18
+                                              Seborrheic Dermatitis       0.00      0.00      0.00         8
+                                      Secondary Hyperparathyroidism       0.00      0.00      0.00         3
+                                                           Sedation       0.00      0.00      0.00        46
+                                                 Seizure Prevention       0.00      0.00      0.00        51
+                                                           Seizures       0.00      0.00      0.00       137
+                                          Severe Mood Dysregulation       0.00      0.00      0.00         1
+                                   Sexual Dysfunction, SSRI Induced       0.00      0.00      0.00        20
+                                           Shift Work Sleep Disorde       0.00      0.00      0.00        17
+                                                     Sinus Symptoms       0.00      0.00      0.00        21
+                                                          Sinusitis       0.00      0.00      0.00       225
+                                                 Sjogren's Syndrome       0.00      0.00      0.00        14
+                                                         Skin Cance       0.00      0.00      0.00         5
+                                    Skin Disinfection, Preoperative       0.00      0.00      0.00         1
+                                                          Skin Rash       0.00      0.00      0.00         3
+                                       Skin and Structure Infection       0.00      0.00      0.00        14
+                                      Skin or Soft Tissue Infection       0.00      0.00      0.00        56
+                                                    Sleep Paralysis       0.00      0.00      0.00         0
+                                   Small Bowel Bacterial Overgrowth       0.00      0.00      0.00         1
+                                             Small Fiber Neuropathy       0.00      0.00      0.00         1
+                                                  Smoking Cessation       0.00      0.00      0.00       488
+                                             Social Anxiety Disorde       0.00      0.00      0.00       104
+                                                Soft Tissue Sarcoma       0.00      0.00      0.00         6
+                                                        Sore Throat       0.00      0.00      0.00         2
+                                                  Spondyloarthritis       0.00      0.00      0.00         2
+                                                  Spondylolisthesis       0.00      0.00      0.00         2
+                                            Squamous Cell Carcinoma       0.00      0.00      0.00         1
+                                                 Status Epilepticus       0.00      0.00      0.00         2
+                                                    Still's Disease       0.00      0.00      0.00         2
+                                                      Stomach Cance       0.00      0.00      0.00         0
+                                                       Stomach Ulce       0.00      0.00      0.00        19
+                                                       Strep Throat       0.00      0.00      0.00        32
+                                            Streptococcal Infection       0.00      0.00      0.00         3
+                                           Stress Ulcer Prophylaxis       0.00      0.00      0.00         1
+                                                 Submental Fullness       0.00      0.00      0.00         1
+                                                            Sunburn       0.00      0.00      0.00         1
+                                       Supraventricular Tachycardia       0.00      0.00      0.00        24
+                                               Surgical Prophylaxis       0.00      0.00      0.00         4
+                                                          Swine Flu       0.00      0.00      0.00         6
+                                       Systemic Lupus Erythematosus       0.00      0.00      0.00        26
+                                              Systemic Mastocytosis       0.00      0.00      0.00         2
+                                                 Systemic Sclerosis       0.00      0.00      0.00         1
+                                                    TSH Suppression       0.00      0.00      0.00         3
+                                                 Tardive Dyskinesia       0.00      0.00      0.00         0
+                                    Temporomandibular Joint Disorde       0.00      0.00      0.00         8
+                                                         Tendonitis       0.00      0.00      0.00        13
+                                                   Testicular Cance       0.00      0.00      0.00         0
+                                                            Tetanus       0.00      0.00      0.00         0
+                                                    Thrombocythemia       0.00      0.00      0.00         2
+                                  Thromboembolic Stroke Prophylaxis       0.00      0.00      0.00         1
+                                                      Thyroid Cance       0.00      0.00      0.00         3
+                                                      Tinea Capitis       0.00      0.00      0.00         1
+                                                     Tinea Corporis       0.00      0.00      0.00         6
+                                                       Tinea Cruris       0.00      0.00      0.00         5
+                                                        Tinea Pedis       0.00      0.00      0.00         7
+                                                     Tinea Versicol       0.00      0.00      0.00         7
+                                                           Tinnitus       0.00      0.00      0.00         8
+                                            Tonsillitis/Pharyngitis       0.00      0.00      0.00        26
+                                               Topical Disinfection       0.00      0.00      0.00         1
+                                                Tourette's Syndrome       0.00      0.00      0.00        18
+                                          Transient Ischemic Attack       0.00      0.00      0.00         1
+                                                Traveler's Diarrhea       0.00      0.00      0.00         3
+                                                     Trichomoniasis       0.00      0.00      0.00        18
+                                                   Trichotillomania       0.00      0.00      0.00         3
+                                               Trigeminal Neuralgia       0.00      0.00      0.00        43
+                                               Tuberculosis, Latent       0.00      0.00      0.00         3
+                                          Tuberculosis, Prophylaxis       0.00      0.00      0.00         1
+                                                  Turner's Syndrome       0.00      0.00      0.00         1
+                                                       Typhoid Feve       0.00      0.00      0.00         0
+                                                 Ulcerative Colitis       0.00      0.00      0.00        63
+                                         Ulcerative Colitis, Active       0.00      0.00      0.00        35
+                                    Ulcerative Colitis, Maintenance       0.00      0.00      0.00        11
+                                               Ulcerative Proctitis       0.00      0.00      0.00         3
+                                                Underactive Thyroid       0.00      0.00      0.00       113
+                         Undifferentiated Connective Tissue Disease       0.00      0.00      0.00         5
+                                              Upper Limb Spasticity       0.00      0.00      0.00         0
+                                  Upper Respiratory Tract Infection       0.00      0.00      0.00        47
+                                               Urinary Incontinence       0.00      0.00      0.00        46
+                                                  Urinary Retention       0.00      0.00      0.00         1
+                                            Urinary Tract Infection       0.00      0.00      0.00       350
+                                               Urinary Tract Stones       0.00      0.00      0.00        29
+                                                          Urticaria       0.00      0.00      0.00        69
+                                                   Uterine Bleeding       0.00      0.00      0.00         1
+                                                   Uterine Fibroids       0.00      0.00      0.00        13
+                                                            Uveitis       0.00      0.00      0.00         5
+                                            Vaginal Yeast Infection       0.17      0.00      0.00       617
+                                                    Varicella-Zoste       0.00      0.00      0.00         1
+                                                     Varicose Veins       0.00      0.00      0.00         1
+                                           Ventricular Fibrillation       0.00      0.00      0.00         1
+                                            Ventricular Tachycardia       0.00      0.00      0.00         7
+                                                             Vertig       0.00      0.00      0.00        25
+                                             Vitamin B12 Deficiency       0.00      0.00      0.00         3
+                                               Vitamin D Deficiency       0.00      0.00      0.00         5
+                     Vitamin/Mineral Supplementation and Deficiency       0.00      0.00      0.00         6
+         Vitamin/Mineral Supplementation during Pregnancy/Lactation       0.00      0.00      0.00        20
+                                                         Vulvodynia       0.00      0.00      0.00         9
+                                                              Warts       0.00      0.00      0.00         1
+                                           Wegener's Granulomatosis       0.00      0.00      0.00         2
+                                                        Weight Loss       0.00      0.00      0.00       972
+                                     Wolff-Parkinson-White Syndrome       0.00      0.00      0.00         1
+                                                 Women (oxybutynin)       0.00      0.00      0.00         1
+                                                         Xerostomia       0.00      0.00      0.00         5
+                                         Zollinger-Ellison Syndrome       0.00      0.00      0.00         0
+                                                  acial Lipoatrophy       0.00      0.00      0.00         0
+                                                     acial Wrinkles       0.00      0.00      0.00         9
+                                                actor IX Deficiency       0.00      0.00      0.00         1
+                                                   ailure to Thrive       0.00      0.00      0.00         1
+                             amilial Cold Autoinflammatory Syndrome       0.06      1.00      0.11         1
+                                         amilial Mediterranean Feve       0.00      0.00      0.00         1
+                                                             atigue       0.00      0.00      0.00        15
+                                   cal Segmental Glomerulosclerosis       0.00      0.00      0.00         1
+                                                  emale Infertility       0.00      0.00      0.00        17
+                                                                eve       0.00      0.00      0.00         3
+                                        ge (amlodipine / valsartan)       0.00      0.00      0.00         8
+              ge HCT (amlodipine / hydrochlorothiazide / valsartan)       0.00      0.00      0.00         1
+                                                        ibromyalgia       0.00      0.00      0.00       474
+                                                lic Acid Deficiency       0.00      0.00      0.00         2
+                                                 llicle Stimulation       0.20      1.00      0.33         1
+                                                     m Pain Disorde       0.00      0.00      0.00         1
+                                                      mance Anxiety       0.00      0.00      0.00        52
+                                                min / pioglitazone)       0.00      0.00      0.00         1
+                                               min / rosiglitazone)       0.00      0.00      0.00         0
+                                                 min / saxagliptin)       0.00      0.00      0.00         3
+                                                 min / sitagliptin)       0.00      0.00      0.00         7
+                                                               min)       0.00      0.00      0.00        12
+                                                                mis       0.00      0.00      0.00         1
+                                                             mist (       0.00      0.00      0.00         0
+                                              moterol / mometasone)       0.00      0.00      0.00         7
+                                                           moterol)       0.00      0.00      0.00        23
+                                          mulation) (phenylephrine)       0.00      0.00      0.00         3
+                                            tic (mycophenolic acid)       0.00      0.00      0.00         1
+                                           von Willebrand's Disease       0.00      0.00      0.00         2
+                                                        zen Shoulde       0.00      0.00      0.00         4
+
+                                                           accuracy                           0.00     42524
+                                                          macro avg       0.01      0.02      0.01     42524
+                                                       weighted avg       0.22      0.00      0.00     42524
