@@ -1,0 +1,14 @@
+flask
+flask-cors
+pandas
+numpy
+scikit-learn
+nltk
+scipy
+joblib
+
+1. Install Backend Dependencies
+
+Open terminal inside the backend folder: 
+copy code 
+pip install flask flask-cors pandas numpy scikit-learn nltk scipy joblib
