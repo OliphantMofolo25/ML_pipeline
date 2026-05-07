@@ -1,132 +1,128 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-# NLP imports
 from textblob import TextBlob
-from sklearn.feature_extraction.text import TfidfVectorizer
 
-# Load dataset
-df = pd.read_csv('drugsComTest_raw.csv')
+# ── Load both raw files ──────────────────────────────────────
+df_train = pd.read_csv('drugsComTrain_raw.csv')
+df_test  = pd.read_csv('drugsComTest_raw.csv')
 
-# -------------------------------
-# 1. Missing values
-# -------------------------------
-missing = df.isnull().sum()
-missing = missing[missing > 0]
-
-print("Missing values per column:")
-print(missing)
-print("\nTotal missing values:", missing.sum())
-
-missing.plot(kind='bar')
-plt.title('Missing Values per Column')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
-
-# -------------------------------
-# 2. Handle missing values
-# -------------------------------
-df = df.dropna(subset=['condition', 'review'])
-
-# =====================================================
-# 🧠 3. FEATURE EXTRACTION - SENTIMENT
-# =====================================================
-df['sentiment_score'] = df['review'].apply(
-    lambda x: TextBlob(str(x)).sentiment.polarity
-)
-
-# =====================================================
-# 📅 4. DATE FEATURE EXTRACTION (ADDED)
-# =====================================================
-df['date'] = pd.to_datetime(df['date'])
-
-df['review_year'] = df['date'].dt.year
-df['review_month'] = df['date'].dt.month
-df['review_dayofweek'] = df['date'].dt.dayofweek
-
-# =====================================================
-# ✍️ 5. REVIEW LENGTH FEATURES (NICE ADDITION)
-# =====================================================
-df['review_length'] = df['review'].apply(lambda x: len(str(x)))
-df['word_count'] = df['review'].apply(lambda x: len(str(x).split()))
-
-# -------------------------------
-# 6. Outlier detection (IQR)
-# -------------------------------
-Q1 = df['usefulCount'].quantile(0.25)
-Q3 = df['usefulCount'].quantile(0.75)
+# ── Compute shared outlier bound BEFORE the loop ─────────────
+# Must be done on combined data so both files use identical threshold
+combined_useful = pd.concat([df_train['usefulCount'],
+                             df_test['usefulCount']])
+Q1 = combined_useful.quantile(0.25)
+Q3 = combined_useful.quantile(0.75)
 IQR = Q3 - Q1
+upper_bound = Q3 + 3 * IQR  # 3x for skewed data
 
-lower_bound = Q1 - 1.5 * IQR
-upper_bound = Q3 + 1.5 * IQR
+print(f"Shared usefulCount upper bound: {upper_bound:.2f}")
 
-outliers = df[(df['usefulCount'] < lower_bound) |
-              (df['usefulCount'] > upper_bound)]
+# ── Clean each file individually ─────────────────────────────
+cleaned_frames = []
 
-print("\nNumber of outliers in 'usefulCount':", len(outliers))
+for df, out_name in [(df_train, 'cleaned_drugsComTrain.csv'),
+                     (df_test,  'cleaned_drugsComTest.csv')]:
 
-# -------------------------------
-# 7. Remove outliers
-# -------------------------------
-df_cleaned = df[(df['usefulCount'] >= lower_bound) &
-                (df['usefulCount'] <= upper_bound)]
+    print(f"\n{'='*50}")
+    print(f"Processing: {out_name}")
+    print(f"{'='*50}")
 
-# =====================================================
-# 🧠 8. TF-IDF FEATURE EXTRACTION + MERGE
-# =====================================================
-tfidf = TfidfVectorizer(max_features=100, stop_words='english')
+    # ---------------------------------------------------
+    # 1. MISSING VALUES — report raw state of THIS file
+    # ---------------------------------------------------
+    missing = df.isnull().sum()
+    missing = missing[missing > 0]
 
-tfidf_matrix = tfidf.fit_transform(df_cleaned['review'])
+    print("\nMissing values per column:")
+    print(missing)
+    print("Total missing values:", missing.sum())
 
-tfidf_df = pd.DataFrame(
-    tfidf_matrix.toarray(),
-    columns=tfidf.get_feature_names_out()
-)
+    if not missing.empty:
+        missing.plot(kind='bar')
+        plt.title(f'Missing Values — {out_name}')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.show()
 
-# MERGE TF-IDF WITH MAIN DATASET (IMPORTANT FIX)
-df_cleaned = pd.concat(
-    [df_cleaned.reset_index(drop=True), tfidf_df],
-    axis=1
-)
+    # ---------------------------------------------------
+    # 2. HANDLE MISSING VALUES
+    # ---------------------------------------------------
+    df = df.dropna(subset=['condition', 'review'])
+    df['rating']      = pd.to_numeric(df['rating'],      errors='coerce')
+    df['usefulCount'] = pd.to_numeric(df['usefulCount'], errors='coerce')
+    df['date']        = pd.to_datetime(df['date'],        errors='coerce')
+    df = df.dropna(subset=['rating', 'usefulCount', 'date'])
+    df = df[df['rating'].between(1, 10)]
 
-print("\nTF-IDF successfully merged into dataset.")
+    print(f"\nRows after missing value removal: {len(df)}")
 
-# -------------------------------
-# 9. Save cleaned dataset
-# -------------------------------
-df_cleaned.to_csv('cleaned_drugsComTest.csv', index=False)
+    # ---------------------------------------------------
+    # 3. FEATURE EXTRACTION — SENTIMENT
+    # ---------------------------------------------------
+    df['sentiment_score'] = df['review'].apply(
+        lambda x: TextBlob(str(x)).sentiment.polarity
+    )
+    print("Sentiment scores computed")
 
-print("\nCleaning complete. File saved.")
+    # ---------------------------------------------------
+    # 4. DATE FEATURE EXTRACTION
+    # ---------------------------------------------------
+    df['review_year']      = df['date'].dt.year
+    df['review_month']     = df['date'].dt.month
+    df['review_dayofweek'] = df['date'].dt.dayofweek
 
-# =====================================================
-# 📊 10. DESCRIPTIVE STATISTICS
-# =====================================================
+    # ---------------------------------------------------
+    # 5. REVIEW LENGTH FEATURES
+    # ---------------------------------------------------
+    df['review_length'] = df['review'].apply(lambda x: len(str(x)))
+    df['word_count']    = df['review'].apply(lambda x: len(str(x).split()))
+
+    # ---------------------------------------------------
+    # 6. OUTLIER DETECTION — report using shared bound
+    # ---------------------------------------------------
+    outliers = df[df['usefulCount'] > upper_bound]
+    print(f"\nOutliers detected in usefulCount: {len(outliers)}")
+    print(f"Using shared upper bound: {upper_bound:.2f}")
+
+    # ---------------------------------------------------
+    # 7. HANDLE OUTLIERS — clip, not drop
+    # ---------------------------------------------------
+    df['usefulCount'] = df['usefulCount'].clip(upper=upper_bound)
+    print(f"Rows after outlier clipping: {len(df)}")
+
+    # ---------------------------------------------------
+    # SAVE
+    # ---------------------------------------------------
+    df.to_csv(out_name, index=False)
+    print(f"\nSaved → {out_name}")
+    cleaned_frames.append(df)
+
+
+# ── Combined analysis on both cleaned files ──────────────────
+df_analysis = pd.concat(cleaned_frames, ignore_index=True)
+
+# 10. DESCRIPTIVE STATISTICS
 print("\nDescriptive Statistics (Rating):")
-print(df_cleaned['rating'].describe())
+print(df_analysis['rating'].describe())
 
 print("\nDescriptive Statistics (UsefulCount):")
-print(df_cleaned['usefulCount'].describe())
+print(df_analysis['usefulCount'].describe())
 
-# =====================================================
-# 📈 11. DISTRIBUTION SHAPES
-# =====================================================
-plt.figure(figsize=(8,5))
-sns.histplot(df_cleaned['rating'], kde=True, color='purple')
-plt.title('Distribution of Drug Ratings')
+# 11. DISTRIBUTION SHAPES
+plt.figure(figsize=(8, 5))
+sns.histplot(df_analysis['rating'], kde=True, color='purple')
+plt.title('Distribution of Drug Ratings (Full Dataset)')
 plt.show()
 
-plt.figure(figsize=(8,5))
-sns.histplot(df_cleaned['usefulCount'], kde=True, color='teal')
+plt.figure(figsize=(8, 5))
+sns.histplot(df_analysis['usefulCount'], kde=True, color='teal')
 plt.title('Distribution of Useful Count (After Outlier Removal)')
 plt.show()
 
-# =====================================================
-# 📐 12. SKEWNESS ANALYSIS
-# =====================================================
-rating_skew = df_cleaned['rating'].skew()
-useful_skew = df_cleaned['usefulCount'].skew()
+# 12. SKEWNESS ANALYSIS
+rating_skew = df_analysis['rating'].skew()
+useful_skew = df_analysis['usefulCount'].skew()
 
 print("\nSkewness Results:")
 print("Rating Skewness:", rating_skew)
@@ -139,14 +135,9 @@ elif useful_skew < -1:
 else:
     print("UsefulCount is approximately symmetric.")
 
-# =====================================================
-# 🔗 13. CORRELATION HEATMAP
-# =====================================================
-plt.figure(figsize=(6,4))
-
-corr = df_cleaned[['rating', 'usefulCount', 'sentiment_score']].corr()
-
+# 13. CORRELATION HEATMAP
+plt.figure(figsize=(6, 4))
+corr = df_analysis[['rating', 'usefulCount', 'sentiment_score']].corr()
 sns.heatmap(corr, annot=True, cmap='coolwarm')
-
-plt.title('Correlation Between Rating, Useful Count, and Sentiment')
+plt.title('Correlation — Rating, Useful Count, Sentiment (Full Dataset)')
 plt.show()
