@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
+import depressionImage from "./assets/Depression.jpg";
+import diabetesImage from "./assets/Diabetes.jpg";
+import highBloodImage from "./assets/High blood.jpg";
 
 const BASE_URL = "http://localhost:8000";
 
@@ -44,6 +47,21 @@ const NAV = [
   { id: "overview", label: "Overview" },
   { id: "reviews", label: "Reviews" },
   { id: "predict", label: "Predictor" },
+];
+
+const HERO_IMAGE_SLIDES = [
+  {
+    image: depressionImage,
+    alt: "Depression condition illustration",
+  },
+  {
+    image: diabetesImage,
+    alt: "Diabetes condition illustration",
+  },
+  {
+    image: highBloodImage,
+    alt: "High blood pressure condition illustration",
+  },
 ];
 
 function getConditionMeta(condition) {
@@ -210,6 +228,20 @@ function RingGauge({ label, value, note, percent, accent = "#53d0ff" }) {
   );
 }
 
+function HeroSlideshow() {
+  return (
+    <div className="hero-slideshow" aria-label="Condition image slideshow">
+      <div className="hero-slides-track">
+        {[...HERO_IMAGE_SLIDES, ...HERO_IMAGE_SLIDES].map((slide, index) => (
+          <article className="hero-slide" key={`${slide.alt}-${index}`}>
+            <img className="hero-slide-image" src={slide.image} alt={slide.alt} />
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function DistributionBars({ items = [] }) {
   const maxCount = Math.max(...items.map((item) => Number(item.count) || 0), 1);
 
@@ -260,7 +292,7 @@ function ConditionSplit({ items = [] }) {
   );
 }
 
-function HeroDashboard({ stats, loading, error, onRetry, onNav }) {
+function HeroDashboard({ stats, loading, error, onNav }) {
   const totalReviews = stats ? formatNumber(stats.totalReviews) : "Live";
   const avgRating = stats ? formatDecimal(stats.avgRating, 2) : "—";
   const uniqueDrugs = stats ? formatNumber(stats.uniqueDrugs) : "—";
@@ -295,7 +327,7 @@ function HeroDashboard({ stats, loading, error, onRetry, onNav }) {
 
       <div className="hero-visual">
         {loading ? <LoadingState label="Connecting to live dashboard..." /> : null}
-        {error ? <ErrorState message={`Unable to load dashboard stats: ${error}`} onRetry={onRetry} /> : null}
+        {!loading && error ? <HeroSlideshow /> : null}
         {!loading && !error ? (
           <>
             <RingGauge
@@ -338,7 +370,25 @@ function DashboardPage({ onNav }) {
 
   return (
     <div className="page-stack">
-      <HeroDashboard stats={data} loading={loading} error={error} onRetry={reload} onNav={onNav} />
+      <HeroDashboard stats={data} loading={loading} error={error} onNav={onNav} />
+
+      {error ? (
+        <Panel className="api-status-panel">
+          <div>
+            <p className="eyebrow">Backend Status</p>
+            <h3>Live dashboard stats are currently unavailable</h3>
+            <p className="section-subtitle">
+              The slideshow in the hero is acting as a graceful fallback while the app waits for your API connection to recover.
+            </p>
+          </div>
+          <div className="api-status-actions">
+            <StatusPill warm>Stats endpoint offline</StatusPill>
+            <button className="ghost-button" onClick={reload}>
+              Retry Connection
+            </button>
+          </div>
+        </Panel>
+      ) : null}
 
       {!loading && !error && data ? (
         <>
