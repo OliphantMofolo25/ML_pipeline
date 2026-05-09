@@ -16,6 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parents[1]
 TRAIN_DATASET_PATH = PROJECT_ROOT / "cleaned_drugsComTrain.csv"
 TEST_DATASET_PATH = PROJECT_ROOT / "cleaned_drugsComTest.csv"
+USER_REVIEWS_PATH = BASE_DIR / "user_submitted_reviews.csv"
 PIPELINE_PATH = BASE_DIR / "pipeline.joblib"
 SUPPORTED_RAW_CONDITIONS = ["Depression", "High Blood Pressure", "Diabetes, Type 2"]
 
@@ -25,13 +26,11 @@ def main() -> None:
     if missing_files:
         raise FileNotFoundError(f"Dataset file(s) not found: {', '.join(str(path) for path in missing_files)}")
 
-    dataframe = pd.concat(
-        [
-            pd.read_csv(path, usecols=["condition", "review"])
-            for path in (TRAIN_DATASET_PATH, TEST_DATASET_PATH)
-        ],
-        ignore_index=True,
-    )
+    frames = [pd.read_csv(path, usecols=["condition", "review"]) for path in (TRAIN_DATASET_PATH, TEST_DATASET_PATH)]
+    if USER_REVIEWS_PATH.exists() and USER_REVIEWS_PATH.stat().st_size > 0:
+        frames.append(pd.read_csv(USER_REVIEWS_PATH, usecols=["condition", "review"]))
+
+    dataframe = pd.concat(frames, ignore_index=True)
     dataframe = dataframe[dataframe["condition"].isin(SUPPORTED_RAW_CONDITIONS)].copy()
     dataframe = dataframe.dropna(subset=["condition", "review"])
     dataframe["review"] = dataframe["review"].astype(str).str.strip()

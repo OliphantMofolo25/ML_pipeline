@@ -64,7 +64,7 @@ X_test_num   = df_test[['sentiment_score', 'rating', 'usefulCount']]
 y_test_final = df_test['condition']
 
 # =====================================================
-# 5. TRAIN / VALIDATION SPLIT
+# 5. TRAIN / VALIDATION SPLIT``
 #    stratify= ensures all 3 classes are proportionally
 #    represented in both train and validation sets.
 # =====================================================
@@ -161,8 +161,6 @@ print(classification_report(y_vm, y_vm_tuned, target_names=TARGET_CONDITIONS))
 
 # =====================================================
 # 10. FINAL EVALUATION ON HELD-OUT TEST SET
-#     Use this only once — at the very end.
-#     Never use test set to make any modelling decisions.
 # =====================================================
 print("\n===== FINAL MODEL — Held-out Test Set =====")
 y_test_pred = best_model.predict(X_test_final)

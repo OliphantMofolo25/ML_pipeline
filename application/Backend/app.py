@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -16,6 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parents[1]
 TRAIN_DATASET_PATH = PROJECT_ROOT / "cleaned_drugsComTrain.csv"
 TEST_DATASET_PATH = PROJECT_ROOT / "cleaned_drugsComTest.csv"
+USER_REVIEWS_PATH = BASE_DIR / "user_submitted_reviews.csv"
 PIPELINE_PATH = BASE_DIR / "pipeline.joblib"
 
 RAW_TO_UI_CONDITION = {
@@ -50,6 +52,14 @@ class RecommendRequest(BaseModel):
     condition: str = Field(..., min_length=3)
 
 
+class ReviewSubmissionRequest(BaseModel):
+    drug: str = Field(..., min_length=2)
+    condition: str = Field(..., min_length=3)
+    review: str = Field(..., min_length=10)
+    rating: float = Field(..., ge=1, le=10)
+    usefulCount: int = Field(0, ge=0)
+
+
 app = FastAPI(
     title="MedInsight AI Backend",
     version="1.0.0",
@@ -82,6 +92,8 @@ def load_dataset() -> pd.DataFrame:
         pd.read_csv(path, usecols=["drugName", "condition", "review", "rating", "date", "usefulCount"])
         for path in (TRAIN_DATASET_PATH, TEST_DATASET_PATH)
     ]
+    if USER_REVIEWS_PATH.exists() and USER_REVIEWS_PATH.stat().st_size > 0:
+        frames.append(pd.read_csv(USER_REVIEWS_PATH, usecols=["drugName", "condition", "review", "rating", "date", "usefulCount"]))
     dataframe = pd.concat(frames, ignore_index=True)
     dataframe = dataframe[dataframe["condition"].isin(SUPPORTED_RAW_CONDITIONS)].copy()
     dataframe = dataframe.dropna(subset=["drugName", "condition", "review"])
@@ -103,6 +115,22 @@ def load_pipeline() -> dict[str, Any] | None:
     if not isinstance(pipeline, dict) or "pipeline" not in pipeline:
         raise ValueError("Backend pipeline artifact has an unexpected structure.")
     return pipeline
+
+
+def refresh_cached_state() -> None:
+    dataset = load_dataset()
+    app.state.dataset = dataset
+    app.state.recommendations = build_drug_recommendations(dataset)
+
+
+def ensure_user_reviews_file() -> None:
+    if USER_REVIEWS_PATH.exists():
+        return
+
+    empty = pd.DataFrame(
+        columns=["drugName", "condition", "review", "rating", "date", "usefulCount", "source"]
+    )
+    empty.to_csv(USER_REVIEWS_PATH, index=False)
 
 
 def build_drug_recommendations(dataframe: pd.DataFrame) -> dict[str, list[dict[str, Any]]]:
@@ -172,6 +200,7 @@ def extract_basis_terms(text: str, pipeline_bundle: dict[str, Any]) -> list[str]
 
 @app.on_event("startup")
 def startup() -> None:
+    ensure_user_reviews_file()
     dataset = load_dataset()
     pipeline = load_pipeline()
     app.state.dataset = dataset
@@ -350,6 +379,50 @@ def recommend_drugs(payload: RecommendRequest) -> dict[str, Any]:
         "disclaimer": (
             "These recommendations are derived from historical drug-review patterns in the dataset and are not a "
             "replacement for professional medical judgement."
+        ),
+    }
+
+
+@app.post("/api/reviews")
+def submit_review(payload: ReviewSubmissionRequest) -> dict[str, Any]:
+    raw_condition = normalize_condition_for_model(payload.condition.strip())
+    if raw_condition not in SUPPORTED_RAW_CONDITIONS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Condition must be one of: {', '.join(sorted(UI_TO_RAW_CONDITION))}.",
+        )
+
+    ensure_user_reviews_file()
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%d")
+    row = pd.DataFrame(
+        [
+            {
+                "drugName": payload.drug.strip(),
+                "condition": raw_condition,
+                "review": payload.review.strip(),
+                "rating": round(float(payload.rating), 1),
+                "date": timestamp,
+                "usefulCount": int(payload.usefulCount),
+                "source": "user_submission",
+            }
+        ]
+    )
+    row.to_csv(USER_REVIEWS_PATH, mode="a", index=False, header=USER_REVIEWS_PATH.stat().st_size == 0)
+    refresh_cached_state()
+
+    return {
+        "message": "Review saved successfully.",
+        "storedReview": {
+            "drug": payload.drug.strip(),
+            "condition": normalize_condition_for_ui(raw_condition),
+            "review": payload.review.strip(),
+            "rating": round(float(payload.rating), 1),
+            "date": timestamp,
+            "usefulCount": int(payload.usefulCount),
+        },
+        "retrainingNote": (
+            "This review is now stored for future analytics immediately. To improve prediction accuracy, "
+            "re-run train_model.py periodically so the model learns from accumulated user-labelled reviews."
         ),
     }
 
