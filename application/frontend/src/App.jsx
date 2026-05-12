@@ -25,7 +25,7 @@ export default function App() {
           <button className="brand-button" onClick={() => setPage("dashboard")}>
             <span className="brand-mark" />
             <div>
-              <strong>Villa Private Hospital</strong>
+              <strong>Justice's Health Care</strong>
               <span>Empowering proactive healthcare</span>
             </div>
           </button>
@@ -48,7 +48,6 @@ export default function App() {
       </main>
 
             <footer className="footer">
-        <span>Villa Private Hospital - Smart LifeGuard Analytics</span>
         <span>Copyright 2026 All rights reserved</span>
       </footer>
     </AppShell>

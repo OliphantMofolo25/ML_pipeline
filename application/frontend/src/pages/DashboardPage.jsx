@@ -6,7 +6,7 @@ function HeroDashboard({ onNav }) {
     <Panel className="hero-panel" glow>
       <div className="hero-copy">
         <p className="eyebrow">Proactive Healthcare</p>
-        <h1>Villa Smart LifeGuard Analytics</h1>
+        <h1>Justice HealthCare Analytics</h1>
         <p className="hero-subtitle">
           Empowering early prediction of diabetes, hypertension, and mental health risks — so care begins before conditions progress.
         </p>

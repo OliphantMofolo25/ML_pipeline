@@ -9,7 +9,6 @@ import depressionIllus from "../assets/Illustrations/depression.jpg";
 import diabetesIllus from "../assets/Illustrations/diabete.jpg";
 import highBloodIllus from "../assets/Illustrations/highblood.jpg";
 
-// ─── Exported so components can build ad-hoc API URLs ─────────────────────────
 export const BASE_URL = "http://localhost:8000";
 
 export const API = {
@@ -94,9 +93,9 @@ export const CONDITION_SYMPTOMS = {
 };
 
 export const CONDITION_ICONS = {
-  Depression: "🧠",
-  "High Blood Pressure": "❤️",
-  "Type 2 Diabetes": "🩺",
+  Depression: "",
+  "High Blood Pressure": "",
+  "Type 2 Diabetes": "",
 };
 
 export const NEUTRAL = {

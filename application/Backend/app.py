@@ -42,6 +42,44 @@ SIDE_EFFECT_KEYWORDS = [
     "anxiety",
     "sleep",
 ]
+MEDICAL_SIGNAL_KEYWORDS = {
+    "sad",
+    "sadness",
+    "depression",
+    "depressed",
+    "mood",
+    "hopeless",
+    "fatigue",
+    "tired",
+    "sleep",
+    "insomnia",
+    "anxiety",
+    "anxious",
+    "stress",
+    "panic",
+    "pressure",
+    "hypertension",
+    "blood",
+    "headache",
+    "dizziness",
+    "dizzy",
+    "heart",
+    "thirst",
+    "thirsty",
+    "urination",
+    "urine",
+    "glucose",
+    "sugar",
+    "diabetes",
+    "weight",
+    "appetite",
+    "concentration",
+    "nausea",
+    "blurred",
+    "vision",
+}
+MIN_CONFIDENCE = 60.0
+MIN_MARGIN = 12.0
 
 
 class PredictRequest(BaseModel):
@@ -198,6 +236,51 @@ def extract_basis_terms(text: str, pipeline_bundle: dict[str, Any]) -> list[str]
     return seen
 
 
+def validate_prediction_text(text: str, pipeline_bundle: dict[str, Any]) -> tuple[bool, str | None, int, int]:
+    trimmed = text.strip()
+    if len(trimmed) < 10:
+        return False, "Please provide a fuller symptom description before running a prediction.", 0, 0
+
+    non_space = "".join(trimmed.split())
+    if not non_space:
+        return False, "Please provide a fuller symptom description before running a prediction.", 0, 0
+
+    digit_ratio = sum(char.isdigit() for char in non_space) / len(non_space)
+    if digit_ratio > 0.5:
+        return False, "The input looks numeric rather than clinical. Please describe symptoms in plain English.", 0, 0
+
+    special_ratio = sum(not char.isalnum() for char in non_space) / len(non_space)
+    if special_ratio > 0.3:
+        return False, "The input contains too many symbols. Please enter readable symptom text.", 0, 0
+
+    words = [word for word in trimmed.lower().split() if any(char.isalpha() for char in word)]
+    if len(words) < 3:
+        return False, "Please describe at least a few symptoms or review details, not just one or two words.", 0, 0
+
+    vectorizer = pipeline_bundle["pipeline"].named_steps["tfidf"]
+    transformed = vectorizer.transform([trimmed])
+    active_features = int(transformed.nnz)
+    keyword_hits = sum(1 for keyword in MEDICAL_SIGNAL_KEYWORDS if keyword in trimmed.lower())
+
+    if active_features < 2:
+        return (
+            False,
+            "This text does not match enough known symptom language from the training data. Please describe the symptoms more clearly.",
+            active_features,
+            keyword_hits,
+        )
+
+    if keyword_hits == 0 and active_features < 5:
+        return (
+            False,
+            "The input does not look clinically meaningful enough for a reliable prediction. Please mention actual symptoms, feelings, or health problems.",
+            active_features,
+            keyword_hits,
+        )
+
+    return True, None, active_features, keyword_hits
+
+
 @app.on_event("startup")
 def startup() -> None:
     ensure_user_reviews_file()
@@ -344,11 +427,26 @@ def predict_condition(payload: PredictRequest) -> dict[str, Any]:
 
     pipeline = pipeline_bundle["pipeline"]
     text = payload.symptoms.strip()
+    is_valid, validation_message, active_features, keyword_hits = validate_prediction_text(text, pipeline_bundle)
+    if not is_valid:
+        raise HTTPException(status_code=422, detail=validation_message)
+
     prediction = pipeline.predict([text])[0]
     probabilities = pipeline.predict_proba([text])[0]
-    confidence = round(float(probabilities.max()) * 100, 1)
+    sorted_probabilities = sorted((float(prob) * 100 for prob in probabilities), reverse=True)
+    confidence = round(sorted_probabilities[0], 1)
+    margin = round(sorted_probabilities[0] - sorted_probabilities[1], 1) if len(sorted_probabilities) > 1 else confidence
     condition = normalize_condition_for_ui(str(prediction))
     basis_terms = extract_basis_terms(text, pipeline_bundle)
+
+    if confidence < MIN_CONFIDENCE or margin < MIN_MARGIN:
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                "The model is not confident enough to give a trustworthy prediction for this input. "
+                "Please provide more specific symptoms, duration, or severity."
+            ),
+        )
 
     if basis_terms:
         basis = f"The input shares strong review-language signals with terms such as {', '.join(basis_terms)}."
@@ -364,6 +462,11 @@ def predict_condition(payload: PredictRequest) -> dict[str, Any]:
         "confidence": confidence,
         "clinicalBasis": basis,
         "summary": summary,
+        "signalStrength": {
+            "matchedTerms": active_features,
+            "clinicalKeywordHits": keyword_hits,
+            "margin": margin,
+        },
     }
 
 

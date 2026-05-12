@@ -13,17 +13,13 @@ from textblob import TextBlob
 from scipy.sparse import hstack
 from tqdm import tqdm
 
-# =====================================================
 # 1. LOAD DATA
-# =====================================================
 print("\n Loading datasets...")
 df_train = pd.read_csv('cleaned_drugsComTrain.csv')
 df_test  = pd.read_csv('cleaned_drugsComTest.csv')
 print(f"Raw train size: {len(df_train)} | Raw test size: {len(df_test)}")
 
-# =====================================================
 # 2. FILTER TO 3 TARGET CONDITIONS ONLY
-# =====================================================
 TARGET_CONDITIONS = ['Depression', 'High Blood Pressure', 'Diabetes, Type 2']
 
 df_train = df_train[df_train['condition'].isin(TARGET_CONDITIONS)].copy()
@@ -32,11 +28,9 @@ df_test  = df_test[df_test['condition'].isin(TARGET_CONDITIONS)].copy()
 print("\nTrain distribution:\n", df_train['condition'].value_counts())
 print("\nTest distribution:\n",  df_test['condition'].value_counts())
 
-# =====================================================
 # 3. SENTIMENT SCORES
 #    Compute on combined to avoid repeating work,
 #    but fit nothing here — pure transformation.
-# =====================================================
 print("\n Computing sentiment scores...")
 df_train['_split'] = 'train'
 df_test['_split']  = 'test'
@@ -167,9 +161,7 @@ y_test_pred = best_model.predict(X_test_final)
 print("Test Accuracy:", round(accuracy_score(y_test_final, y_test_pred), 4))
 print(classification_report(y_test_final, y_test_pred, target_names=TARGET_CONDITIONS))
 
-# =====================================================
 # 11. CONFUSION MATRICES
-# =====================================================
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 sns.heatmap(
@@ -197,9 +189,7 @@ plt.savefig('models/confusion_matrices.png', dpi=150, bbox_inches='tight')
 plt.show()
 print("Confusion matrix plot saved")
 
-# =====================================================
 # 12. SAVE MODEL + VECTORIZER
-# =====================================================
 os.makedirs('models', exist_ok=True)
 joblib.dump(best_model, 'models/drug_condition_model.joblib')
 joblib.dump(tfidf,      'models/tfidf_vectorizer.joblib')
